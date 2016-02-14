@@ -18,6 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MyQuizActivity"
+            android:label="@string/title_activity_quiz"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+        </activity>
+
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            >
+        </activity>
     </application>
 
 </manifest>

@@ -1,77 +1,62 @@
 package com.shenzhenyuan.myquiz;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
 /**
  * Created by shenzhenyuan on 2/13/16.
  */
-public class ResultActivity extends Fragment {
+public class ResultActivity extends AppCompatActivity {
 
     private static final String ARG_PRIOR_RESULT = "prior_results";
     private static ArrayList<String> results = new ArrayList<>();
 
     private Button mRetryBtn;
     private Button mQuitBtn;
+    private ListView mResultListView;
+    private ResultViewAdapter mAdapter;
 
-    public static ResultActivity newInstance(ArrayList<String> results) {
-        ResultActivity fragment = new ResultActivity();
-        Bundle args = new Bundle();
-
-        args.putSerializable(ARG_PRIOR_RESULT, results);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public ResultActivity() {
-        // Required empty public constructor
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            results = (ArrayList<String>)getArguments().getSerializable(ARG_PRIOR_RESULT);
-        }
-    }
+        setContentView(R.layout.activity_result);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
-        View view = null;
-        view = inflater.inflate(R.layout.fragment_text_question, container, false);
+        Intent intent = getIntent();
+        results = (ArrayList<String>) intent.getSerializableExtra("result");
 
+        mRetryBtn = (Button) findViewById(R.id.restart_button);
+        mQuitBtn = (Button) findViewById(R.id.exit_button);
 
-        mSubmitBtn = (Button) view.findViewById(R.id.submit_button);
-        return view;
-    }
+        mResultListView = (ListView) findViewById(R.id.result_listview);
+        mAdapter = new ResultViewAdapter(this, results);
+        mResultListView.setAdapter(mAdapter);
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
-        super.onViewCreated(view, savedInstanceState);
-        mSubmitBtn.setOnClickListener(new View.OnClickListener() {
+        mRetryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if((mCheckBox.get(0).isChecked() == true)&&(mCheckBox.get(1).isChecked() == true)&&
-                        (mCheckBox.get(2).isChecked() == true)&&(mCheckBox.get(3).isChecked() == false)&&
-                        (mCheckBox.get(4).isChecked() == true)){
-                    results.add(getActivity().getResources().getString(R.string.correct));
-                }
-                else{
-                    results.add(getActivity().getResources().getString(R.string.wrong));
-                }
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_fragment_container, ResultActivity.newInstance(results))
-                        .addToBackStack(null)
-                        .commit();
+                Intent intent = new Intent(getApplicationContext(), MyQuizActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        mQuitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
             }
         });
     }
+
 }
