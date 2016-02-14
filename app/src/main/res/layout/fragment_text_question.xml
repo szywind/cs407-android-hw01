@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:weightSum="1">
+
+
+        <TextView
+            android:id="@+id/quiz2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:singleLine="true"
+            android:textColor="@color/colorTheme"
+            android:textSize="18sp"
+            android:maxLines="10"
+            android:text="@string/quiz2"
+            android:inputType="textMultiLine"
+            android:gravity="left|right"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="170dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:weightSum="1">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Michelangelo"
+                android:id="@+id/checkBox1"
+                android:layout_gravity="left" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leonardo da Vinci"
+                android:id="@+id/checkBox2"
+                android:layout_gravity="left" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raphael"
+                android:id="@+id/checkBox3"
+                android:layout_gravity="left" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pablo Picasso"
+                android:id="@+id/checkBox4"
+                android:layout_gravity="left" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giovanni Bellini"
+                android:id="@+id/checkBox5"
+                android:layout_gravity="left" />
+        </LinearLayout>
+
+        <Button
+            android:layout_marginTop="100dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit_button"
+            android:layout_margin="5dp"
+            android:text="Submit"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            style="@style/ButtonWhiteGreen"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

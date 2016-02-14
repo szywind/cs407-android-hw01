@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/quiz1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_margin="10dp"
+            android:singleLine="true"
+            android:textColor="@color/colorTheme"
+            android:textSize="18sp"
+            android:maxLines="3"
+            android:text="@string/quiz1"
+            android:inputType="textMultiLine" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_quiz"
+            android:src="@drawable/italy"
+            android:layout_gravity="center"
+            />
+
+
+        <EditText
+            android:id="@+id/answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:maxLines="3"
+            android:hint="Type your answer"
+            />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit_button"
+            android:layout_margin="5dp"
+            android:text="Submit"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            style="@style/ButtonWhiteGreen"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
