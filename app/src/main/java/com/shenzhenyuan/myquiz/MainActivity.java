@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Button startBtn = (Button) findViewById(R.id.start_button);
         Button exitBtn = (Button) findViewById(R.id.exit_button);
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playPressed(v);
+                startPressed(v);
             }
         });
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void playPressed(View view) {
+    public void startPressed(View view) {
         Intent intent = new Intent(getApplicationContext(), MyQuizActivity.class);
         startActivity(intent);
     }
@@ -64,4 +62,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
