@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -58,6 +59,7 @@ public class TextQuestionFragment extends Fragment{
 //            mCheckBox.add((CheckBox) view.findViewById(i));
         }
         mSubmitBtn = (Button) view.findViewById(R.id.submit_button);
+
         return view;
     }
 
@@ -81,6 +83,7 @@ public class TextQuestionFragment extends Fragment{
                 bundle.putSerializable("result", results);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
     }

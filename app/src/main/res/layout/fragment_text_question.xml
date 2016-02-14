@@ -20,11 +20,11 @@
             android:paddingEnd="10dp"
             android:singleLine="true"
             android:textColor="@color/colorTheme"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:maxLines="10"
             android:text="@string/quiz2"
             android:inputType="textMultiLine"
-            android:gravity="left|right"
+            android:gravity="fill_horizontal"
             />
         <LinearLayout
             android:orientation="vertical"
